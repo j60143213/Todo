@@ -13,7 +13,13 @@
 </head>
 
 <body>
-<header><a href="/"> Home </a> | <a href="/create"> Create </a> | <a href="/login"> Login </a></head>
+    <br>
+    <br>
+    <center>
+<button type="button" class="btn btn-warning"><header><a href="/"> Home </a></button>
+    <button type="button" class="btn btn-success"><a href="/create"> Create </a></button>
+        <button type="button" class="btn btn-info"><a href="/login"> Login </a></head></button>
+    </center>
     <div class="container">
     <h1><i class="fa fa-list"></i> Todo List ::</h1>
 
@@ -36,36 +42,23 @@
             </tr>
         </thead>
         <tbody>
+            @foreach($posts as $item)
             <tr>
-                <td>1</td>
-                <td>ซื้อสินค้าที่ Super Market</td>
-                <td>Shopping</td>
-                <td>Incomplete</td>
+            <td>{{$item->id}}</td>
+            <td>{{$item->detail}}</td>
+                <td>{{$item->category->name}}</td>
+            <td>@if($item->status == 1)complete @else incomplete @endif</td>
                 <td>
                     <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> edit</a>
-                    <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-times"></i> delete</a>
+                <a href="/delete/{{$item->id}}" class="btn btn-danger btn-xs"><i class="fa fa-times"></i> delete</a>
                 </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>พาหมาไปวิ่งเล่น</td>
-                <td>Activity</td>
-                <td>Completed</td>
-                <td>
-                    <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> edit</a>
-                    <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-times"></i> delete</a>
-                </td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>
-<ul class="pagination">
-    <li><a href="#">1</a></li>
-    <li class="active"><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-</ul>
+{{$posts->Links()}}
+
         <hr>
         <p>&copy; 2017 Bundit Nuntates</p>
     </div>
