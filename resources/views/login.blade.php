@@ -16,7 +16,7 @@
     <br>
     <br>
     <center>
-<button type="button" class="btn btn-warning"><header><a href="/"> Home </a></button>
+<button type="button" class="btn btn-warning "><header><a href="/" > Home </a></button>
     <button type="button" class="btn btn-success"><a href="/create"> Create </a></button>
         <button type="button" class="btn btn-info"><a href="/login"> Login </a></head></button>
     </center>
